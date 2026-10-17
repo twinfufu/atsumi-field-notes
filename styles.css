@@ -220,3 +220,55 @@ h1 { margin-bottom: 1.8rem; font-size: 3.8rem; line-height: 1.4; letter-spacing:
   h2, h3 { break-after: avoid; }
   .theme-card, .record-card { break-inside: avoid; }
 }
+
+/* 地域プロジェクト：既存の色と本文幅を共有する。 */
+.project-page h1 { font-size: clamp(1.8rem, 4vw, 2.75rem); letter-spacing: .035em; margin-top: 1.5rem; }
+.breadcrumbs { font-size: .875rem; margin-bottom: 2rem; }
+.breadcrumbs a { display: inline-block; padding: .25rem 0; }
+.project-page > section, .project-detail > section { margin-top: 4rem; }
+.project-detail { max-width: 760px; margin-inline: auto; }
+.project-page h2 { font-size: 1.65rem; }
+.project-grid { list-style: none; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.25rem; }
+.project-grid li { min-width: 0; }
+.project-card { display: flex; flex-direction: column; align-items: flex-start; height: 100%; padding: 1.5rem; border: 1px solid var(--line); background: var(--wash); text-decoration: none; transition: transform .15s, border-color .15s; }
+.project-card:hover { transform: translateY(-3px); border-color: var(--green); color: var(--ink); }
+.project-card:focus-visible { outline: 3px solid var(--sea); outline-offset: 4px; }
+.project-icon { display: block; font-size: 1.75rem; margin-bottom: .75rem; }
+.project-card h3 { margin: 1rem 0 .75rem; font-size: 1.125rem; text-decoration: underline; text-underline-offset: .25em; }
+.project-card p { color: var(--muted); }
+.card-more { margin-top: auto; font-size: .875rem; text-decoration: underline; }
+.project-timeline { list-style: none; display: grid; grid-template-columns: 1fr; max-width: 42rem; gap: 1.5rem; margin-bottom: 2rem; }
+.project-timeline li { position: relative; border-top: 1px solid var(--line); padding: 1rem 0 1.75rem; }
+.project-timeline li:not(:last-child)::after { content: '↓'; position: absolute; bottom: -.5rem; left: 0; color: var(--sea); }
+.policy-note, .current-stage { padding: 2rem; border: 1px solid var(--line); background: var(--wash); }
+.current-stage { border-left: 4px solid var(--green); }
+.current-stage-title { font-size: 1.75rem; font-weight: 600; color: var(--green); }
+.current-stage p:last-child, .policy-note p:last-child { margin-bottom: 0; }
+.research-list { padding-left: 1.5rem; }
+.research-list li { margin-bottom: .5rem; }
+.resource-cycle { list-style: none; max-width: 30rem; margin-inline: auto; text-align: center; }
+.resource-cycle li { position: relative; padding: 1rem; margin-bottom: 2.25rem; border: 1px solid var(--line); background: var(--wash); font-weight: 600; }
+.resource-cycle li:not(:last-child)::after { content: '↓'; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding: .2rem 0; color: var(--sea); }
+.resource-cycle li:last-child { margin-bottom: 1rem; }
+.cycle-return { text-align: center; color: var(--green); font-size: .9375rem; }
+.site-nav a[aria-current="page"] { text-decoration: underline; font-weight: 600; }
+@media (max-width: 1050px) { .project-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 760px) {
+ .project-grid, .project-timeline { grid-template-columns: 1fr; }
+ .project-page > section, .project-detail > section { margin-top: 3rem; }
+ .project-timeline { gap: 1rem; }
+ .project-timeline li:not(:last-child)::after { content: '↓'; }
+ .policy-note, .current-stage { padding: 1.4rem; }
+}
+@media (prefers-reduced-motion: reduce) { .project-card { transition: none; } .project-card:hover { transform: none; } }
+@media print { .project-card, .current-stage, .resource-cycle li { break-inside: avoid; } }
+
+/* 連絡先とサイト紹介 */
+.contact-list dd a { display: inline-block; padding-block: .25rem; overflow-wrap: anywhere; }
+.site-share { min-width: 0; padding: 1.5rem; background: var(--wash); border: 1px solid var(--line); }
+.site-share p { font-size: .9375rem; }
+.site-qr { display: block; background: white; margin-bottom: 1rem; }
+.share-url { overflow-wrap: anywhere; }
+.site-share button { cursor: pointer; }
+#copy-status { margin: .75rem 0 0; }
+@media (max-width: 760px) { .contact-list > div { grid-template-columns: minmax(5.5rem, 6rem) minmax(0, 1fr); } }
