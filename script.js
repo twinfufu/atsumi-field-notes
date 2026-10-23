@@ -56,18 +56,3 @@
   else if (mobile.addListener) mobile.addListener(updateLayout);
   updateLayout();
 }());
-
-(function () {
-  'use strict';
-  var button = document.getElementById('copy-site-url');
-  var status = document.getElementById('copy-status');
-  if (!button || !status || !navigator.clipboard || !navigator.clipboard.writeText) return;
-  button.hidden = false;
-  button.addEventListener('click', function () {
-    navigator.clipboard.writeText('https://twinfufu.github.io/atsumi-field-notes/').then(function () {
-      status.textContent = '公開サイトのURLをコピーしました。';
-    }).catch(function () {
-      status.textContent = 'コピーできませんでした。上のURLを選択してコピーしてください。';
-    });
-  });
-}());
