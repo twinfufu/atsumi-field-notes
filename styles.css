@@ -272,3 +272,16 @@ h1 { margin-bottom: 1.8rem; font-size: 3.8rem; line-height: 1.4; letter-spacing:
 .site-share button { cursor: pointer; }
 #copy-status { margin: .75rem 0 0; }
 @media (max-width: 760px) { .contact-list > div { grid-template-columns: minmax(5.5rem, 6rem) minmax(0, 1fr); } }
+
+/* 市民の声：聞き取り記録の一覧と記事。分野タグは表示のみ（リンク・絞り込み機能なし）。 */
+.voice-list { list-style: none; }
+.voice-list > li { max-width: 760px; }
+.voice-card-label { margin: 1rem 0 .25rem; }
+.voice-list h3 { margin-top: 0; }
+.voice-tags { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; }
+.voice-tags li { margin: 0; padding: .1rem .65rem; border: 1px solid var(--line); background: white; color: var(--muted); font-size: .8125rem; line-height: 1.9; }
+.voice-notice { margin-bottom: 2rem; }
+.voice-area h3 { margin-top: 2rem; font-family: var(--serif); font-size: 1.25rem; }
+.voice-article h4 { margin: 0 0 .5rem; font-size: 1rem; color: var(--green); }
+.voice-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.voice-signature { font-family: var(--serif); font-weight: 600; }
