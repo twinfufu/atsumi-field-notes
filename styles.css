@@ -285,3 +285,7 @@ h1 { margin-bottom: 1.8rem; font-size: 3.8rem; line-height: 1.4; letter-spacing:
 .voice-article h4 { margin: 0 0 .5rem; font-size: 1rem; color: var(--green); }
 .voice-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .voice-signature { font-family: var(--serif); font-weight: 600; }
+
+/* 市民の声：「声を届ける」フォームへの案内。 */
+.voice-cta { max-width: 760px; margin-top: 4rem; }
+@media (max-width: 760px) { .voice-cta { margin-top: 3rem; } }
