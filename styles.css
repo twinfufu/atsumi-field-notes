@@ -57,6 +57,9 @@ h1 { margin-bottom: 1.8rem; font-size: 3.8rem; line-height: 1.4; letter-spacing:
 .hero-principle { margin-bottom: 2rem; color: var(--muted); font-size: 1rem; letter-spacing: .025em; }
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .65rem 1.4rem; border: 1px solid var(--green); background: var(--green); color: white; text-decoration: none; font-size: .9375rem; }
 .button:hover { color: white; background: #163b32; }
+.button-secondary { background: white; color: var(--green); }
+.button-secondary:hover { background: var(--wash); color: var(--green); }
+.button-row { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
 .mobile-break { display: none; }
 .field-note { position: relative; padding: 2.25rem 2.75rem; background: var(--wash); border-top: 3px solid var(--green); }
 .field-note::after { position: absolute; content: ""; top: 1.1rem; bottom: 1.1rem; right: 1.1rem; left: 1.1rem; border: 1px solid var(--line); pointer-events: none; }
@@ -273,19 +276,49 @@ h1 { margin-bottom: 1.8rem; font-size: 3.8rem; line-height: 1.4; letter-spacing:
 #copy-status { margin: .75rem 0 0; }
 @media (max-width: 760px) { .contact-list > div { grid-template-columns: minmax(5.5rem, 6rem) minmax(0, 1fr); } }
 
-/* 市民の声：聞き取り記録の一覧と記事。分野タグは表示のみ（リンク・絞り込み機能なし）。 */
+/* 市民の声：聞き取り記録の一覧と記事。分野タグは themes/ へのリンク、一覧は絞り込み可。 */
 .voice-list { list-style: none; }
 .voice-list > li { max-width: 760px; }
 .voice-card-label { margin: 1rem 0 .25rem; }
 .voice-list h3 { margin-top: 0; }
 .voice-tags { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; }
 .voice-tags li { margin: 0; padding: .1rem .65rem; border: 1px solid var(--line); background: white; color: var(--muted); font-size: .8125rem; line-height: 1.9; }
+.voice-tags a { color: inherit; text-decoration: none; }
+.voice-tags a:hover { color: var(--sea); text-decoration: underline; }
 .voice-notice { margin-bottom: 2rem; }
 .voice-area h3 { margin-top: 2rem; font-family: var(--serif); font-size: 1.25rem; }
 .voice-article h4 { margin: 0 0 .5rem; font-size: 1rem; color: var(--green); }
+.voice-article .record-card[id] { scroll-margin-top: 5rem; }
 .voice-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .voice-signature { font-family: var(--serif); font-weight: 600; }
 
+/* 市民の声：一覧の分野絞り込み（JSあり時）。無効時もタグリンクと themes/ で辿れる。 */
+.voice-filter { max-width: 760px; margin-bottom: 2rem; }
+.voice-filter-label { margin-bottom: .5rem; font-size: .875rem; font-weight: 600; letter-spacing: .08em; color: var(--sea); }
+.voice-filter-tags { margin-bottom: .75rem; }
+.voice-filter-tags li { padding: 0; border: 0; background: transparent; }
+.voice-filter-btn { display: inline-flex; align-items: center; min-height: 36px; padding: .15rem .7rem; border: 1px solid var(--line); background: white; color: var(--muted); font-size: .8125rem; line-height: 1.6; cursor: pointer; }
+.voice-filter-btn:hover { color: var(--sea); border-color: var(--sea); }
+.voice-filter-btn.is-active { background: var(--green); border-color: var(--green); color: white; }
+.voice-filter-status { margin-bottom: 0; min-height: 1.5em; }
+.voice-list > li.is-filtered-out { display: none; }
+
+/* 市民の声：分野から探すページ */
+.theme-jump { max-width: 760px; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
+.theme-jump-label { margin-bottom: .75rem; font-size: .875rem; font-weight: 600; letter-spacing: .08em; color: var(--sea); }
+.theme-jump-list { margin-bottom: 1rem; }
+.theme-section { max-width: 760px; scroll-margin-top: 5rem; }
+.theme-section + .theme-section { margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
+.theme-related { margin-top: -.5rem; }
+.theme-voice-list { list-style: none; }
+.theme-voice-list > li { margin-bottom: 1.25rem; }
+.theme-voice-list h3 { margin-top: 0; }
+.theme-planned .voice-tags li { display: inline-flex; align-items: center; gap: .5rem; }
+.theme-back { margin-top: 3rem; }
+
 /* 市民の声：「声を届ける」フォームへの案内。 */
 .voice-cta { max-width: 760px; margin-top: 4rem; }
-@media (max-width: 760px) { .voice-cta { margin-top: 3rem; } }
+@media (max-width: 760px) {
+  .voice-cta { margin-top: 3rem; }
+  .theme-section + .theme-section { margin-top: 2.5rem; padding-top: 2rem; }
+}
