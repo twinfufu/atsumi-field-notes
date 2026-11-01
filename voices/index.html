@@ -43,6 +43,7 @@
   <p>渥美半島で暮らす方々から聞いた話を、聞き取り記録として回ごとに掲載します。</p>
   <p>掲載する声は「現場から聞いたこと」です。資料などで確かめた「事実確認済み」の内容とは分けて記します。</p>
   <p class="small-note">掲載内容は個別の聞き取りに基づく記録です。決定した政策・公約ではありません。地区や個人が特定される情報は公開しません。</p>
+  <p><a class="button" href="themes/">分野から探す</a></p>
 </header>
 
 <section aria-labelledby="voices-list">
@@ -50,12 +51,32 @@
   <!--
     新しい回を追加するとき：
     1. voices/vol-01/ をコピーして voices/vol-02/ などを作り、本文・タイトル・canonical・og:url を差し替える。
+       本文の各 .record-card には id と data-categories（分野番号）を付ける。
     2. 下の一覧の先頭に .record-card の li を1つ追加する（新しい回を上に）。
-    3. data-categories には、その回で話題にのぼった分野の番号を書く。
+       data-categories とその回の .voice-tags を、話題にのぼった分野に合わせる。
+    3. voices/themes/index.html の該当分野（#c1〜#c9）に、既存文だけの抜粋カードを足す。
+    data-categories の番号：
        1 医療・医療費 / 2 公共交通・高齢者の移動 / 3 農業・燃料費・補助制度 / 4 移住・定住 / 5 雇用・若者流出
        6 子育て・福祉 / 7 消防・防災 / 8 少子高齢化・公共事業 / 9 空き家・草木管理
   -->
-  <ul class="voice-list" role="list">
+  <div class="voice-filter" data-voice-filter>
+    <p class="voice-filter-label" id="voice-filter-label">分野で絞り込む</p>
+    <p class="small-note">JavaScriptが使える環境では、下のタグで一覧を絞り込めます。すべての分野の抜粋は<a href="themes/">分野から探す</a>でも見られます。</p>
+    <ul class="voice-tags voice-filter-tags" role="list" aria-labelledby="voice-filter-label">
+      <li><button type="button" class="voice-filter-btn is-active" data-filter="all" aria-pressed="true">すべて</button></li>
+      <li><button type="button" class="voice-filter-btn" data-filter="1" aria-pressed="false">医療・医療費</button></li>
+      <li><button type="button" class="voice-filter-btn" data-filter="2" aria-pressed="false">公共交通・高齢者の移動</button></li>
+      <li><button type="button" class="voice-filter-btn" data-filter="3" aria-pressed="false">農業・燃料費・補助制度</button></li>
+      <li><button type="button" class="voice-filter-btn" data-filter="4" aria-pressed="false">移住・定住</button></li>
+      <li><button type="button" class="voice-filter-btn" data-filter="5" aria-pressed="false">雇用・若者流出</button></li>
+      <li><button type="button" class="voice-filter-btn" data-filter="6" aria-pressed="false">子育て・福祉</button></li>
+      <li><button type="button" class="voice-filter-btn" data-filter="7" aria-pressed="false">消防・防災</button></li>
+      <li><button type="button" class="voice-filter-btn" data-filter="8" aria-pressed="false">少子高齢化・公共事業</button></li>
+      <li><button type="button" class="voice-filter-btn" data-filter="9" aria-pressed="false">空き家・草木管理</button></li>
+    </ul>
+    <p class="voice-filter-status small-note" data-filter-status aria-live="polite"></p>
+  </div>
+  <ul class="voice-list" role="list" data-voice-list>
     <li class="record-card" data-categories="1 2 3 4 5 6 7 8 9">
       <span class="status" data-status="heard">現場から聞いたこと</span>
       <p class="section-number voice-card-label">地域の声・聞き取り記録 第1回</p>
@@ -63,7 +84,15 @@
       <p class="small-note">原稿整理日：2026年10月18日</p>
       <p>渥美半島で暮らす方々から、日々の生活や地域の将来についてお話を聞きました。</p>
       <ul class="voice-tags" role="list" aria-label="話題にのぼった分野">
-        <li>医療・医療費</li><li>公共交通・高齢者の移動</li><li>農業・燃料費・補助制度</li><li>移住・定住</li><li>雇用・若者流出</li><li>子育て・福祉</li><li>消防・防災</li><li>少子高齢化・公共事業</li><li>空き家・草木管理</li>
+        <li><a href="themes/#c1">医療・医療費</a></li>
+        <li><a href="themes/#c2">公共交通・高齢者の移動</a></li>
+        <li><a href="themes/#c3">農業・燃料費・補助制度</a></li>
+        <li><a href="themes/#c4">移住・定住</a></li>
+        <li><a href="themes/#c5">雇用・若者流出</a></li>
+        <li><a href="themes/#c6">子育て・福祉</a></li>
+        <li><a href="themes/#c7">消防・防災</a></li>
+        <li><a href="themes/#c8">少子高齢化・公共事業</a></li>
+        <li><a href="themes/#c9">空き家・草木管理</a></li>
       </ul>
       <p><a href="vol-01/">記録を読む →</a></p>
     </li>
@@ -79,18 +108,19 @@
 
 <section aria-labelledby="voice-categories">
   <h2 id="voice-categories">記録の分野</h2>
-  <p>聞き取りの内容は、次の9つの分野に分けて整理します。</p>
+  <p>聞き取りの内容は、次の9つの分野に分けて整理します。タグを選ぶと、その分野の抜粋一覧へ移動します。</p>
   <ul class="voice-tags" role="list">
-    <li data-category="1">医療・医療費</li>
-    <li data-category="2">公共交通・高齢者の移動</li>
-    <li data-category="3">農業・燃料費・補助制度</li>
-    <li data-category="4">移住・定住</li>
-    <li data-category="5">雇用・若者流出</li>
-    <li data-category="6">子育て・福祉</li>
-    <li data-category="7">消防・防災</li>
-    <li data-category="8">少子高齢化・公共事業</li>
-    <li data-category="9">空き家・草木管理</li>
+    <li data-category="1"><a href="themes/#c1">医療・医療費</a></li>
+    <li data-category="2"><a href="themes/#c2">公共交通・高齢者の移動</a></li>
+    <li data-category="3"><a href="themes/#c3">農業・燃料費・補助制度</a></li>
+    <li data-category="4"><a href="themes/#c4">移住・定住</a></li>
+    <li data-category="5"><a href="themes/#c5">雇用・若者流出</a></li>
+    <li data-category="6"><a href="themes/#c6">子育て・福祉</a></li>
+    <li data-category="7"><a href="themes/#c7">消防・防災</a></li>
+    <li data-category="8"><a href="themes/#c8">少子高齢化・公共事業</a></li>
+    <li data-category="9"><a href="themes/#c9">空き家・草木管理</a></li>
   </ul>
+  <p><a href="themes/">分野ごとの抜粋を見る →</a></p>
 </section>
 </main>
   <footer class="site-footer">
