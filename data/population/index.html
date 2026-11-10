@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ja"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>田原市の人口・世帯数 | 渥美半島の現場記録</title>
+  <meta name="description" content="田原市の住民基本台帳系の月次人口・世帯数（2012年1月〜2025年12月）と国勢調査（1955年〜2025年）を、定義の違う統計として分けて掲載しています。">
+  <meta name="theme-color" content="#234d43">
+  <link rel="canonical" href="https://twinfufu.github.io/atsumi-field-notes/data/population/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="渥美半島の現場記録">
+  <meta property="og:title" content="田原市の人口・世帯数 | 渥美半島の現場記録">
+  <meta property="og:description" content="田原市の住民基本台帳系の月次人口・世帯数（2012年1月〜2025年12月）と国勢調査（1955年〜2025年）を、定義の違う統計として分けて掲載しています。">
+  <meta property="og:url" content="https://twinfufu.github.io/atsumi-field-notes/data/population/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23234d43'/%3E%3Cpath d='M7 8h18M7 15h12M7 22h18' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../script.js" defer></script>
+  <script src="../statistics/data.js" defer></script>
+  <script src="../statistics/period.js" defer></script>
+  <script src="../statistics/chart.js" defer></script>
+  <script src="../statistics/export.js" defer></script>
+  <script src="../statistics/page.js" defer></script>
+  <script src="../statistics/source.js" defer></script>
+  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="../statistics/statistics.css">
+</head><body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header id="top" class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../" aria-label="渥美半島の現場記録 ホーム">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>渥美半島の現場記録</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" hidden>メニュー</button>
+      <nav id="site-nav" class="site-nav" aria-label="メインナビゲーション">
+        <a href="../../#about">活動について</a>
+        <a href="../../#themes">調査テーマ</a>
+        <a href="../../projects/">地域プロジェクト</a>
+        <a href="../../voices/">市民の声</a>
+        <a href="../../#records">現場記録</a>
+        <a href="../../#process">政策を作る方法</a>
+        <a href="../../#contact">連絡先</a>
+      </nav>
+    </div>
+  </header>
+<main id="main" tabindex="-1" class="section container project-page">
+  <nav class="breadcrumbs" aria-label="パンくず"><a href="../../">ホーム</a> / <a href="./">人口・世帯数</a></nav>
+  <p class="section-number">行政統計 / 人口・世帯数</p>
+  <h1>田原市の人口・世帯数</h1>
+  <p>住民基本台帳系の月次集計を、総人口と世帯数に分けて表示します。行政統計の紹介であり、政策評価やAIによる判断ではありません。</p>
+  <p>月次データ対象：住民基本台帳系の2012年1月1日〜2025年12月1日、各月1日の168か月です。国勢調査は下の独立した欄に表示し、月次データと1本の線にはつなぎません。</p>
+  <fieldset id="controls" disabled><legend>表示期間とCSV保存</legend><div><label for="preset">期間の選択</label><select id="preset"><option value="all">全期間</option><option value="recent">直近12か月 / 2025年</option><option value="first">2025年上半期（1〜6月）</option><option value="second">2025年下半期（7〜12月）</option><option value="custom">任意の開始月〜終了月</option></select></div><div><label for="start">開始月</label><select id="start"></select></div><div><label for="end">終了月</label><select id="end"></select></div><button type="button" class="button" id="save" disabled>選択期間のCSVを保存</button></fieldset>
+  <p id="period">対象期間：読み込み中</p><p id="status" role="status" aria-live="polite">CSVを読み込んでいます。</p><div class="print-actions"><button class="button" type="button" id="print">印刷する</button></div><noscript><p>表示・期間選択にはJavaScriptが必要です。下記の原文CSVをご利用ください。</p></noscript>
+  <figure><figcaption>総人口（日本人＋外国人）［人］</figcaption><svg id="population" viewBox="0 0 720 235" role="img" aria-label="総人口の月次グラフ"></svg></figure>
+  <figure><figcaption>総人口の世帯数（日本人＋外国人）［世帯］</figcaption><svg id="households" viewBox="0 0 720 235" role="img" aria-label="世帯数の月次グラフ"></svg></figure>
+  <p class="small-note">縦軸は表示中のデータの範囲に合わせており、0から始まっていません。正確な数値は下の数表で確認できます。欠測は0に置き換えず、グラフの線を切ります。</p>
+  <h2>選択期間の数表</h2><div class="table-wrap"><table><caption>各月1日時点の総人口・世帯数</caption><thead><tr><th scope="col">年月日</th><th scope="col">総人口［人］</th><th scope="col">世帯数［世帯］</th></tr></thead><tbody id="values"></tbody></table></div>
+  <section aria-labelledby="census-title">
+    <h2 id="census-title">国勢調査による人口・世帯数</h2>
+    <p>国勢調査と住民基本台帳は、調査・登録の方法や集計の定義が異なる統計です。ここでは1955年10月1日〜2025年10月1日の5年ごと、15時点を表示し、上の月次グラフとは1本の線に結合していません。</p>
+    <p>2003年8月20日に田原町と赤羽根町が合併して田原市となり、2005年10月1日に渥美町を編入しました。市統計年鑑の表3-1は、旧田原町・旧赤羽根町・旧渥美町の合計として、現在の市域に合わせて再構成した市全体の数値を掲載しています。</p>
+    <p id="census-period">対象期間：読み込み中</p><p id="census-status" role="status" aria-live="polite">国勢調査CSVを読み込んでいます。</p>
+    <figure><figcaption>国勢調査の総人口［人］</figcaption><svg id="censusPopulation" viewBox="0 0 720 235" role="img" aria-label="国勢調査の総人口の推移"></svg></figure>
+    <figure><figcaption>国勢調査の世帯数［世帯］</figcaption><svg id="censusHouseholds" viewBox="0 0 720 235" role="img" aria-label="国勢調査の世帯数の推移"></svg></figure>
+    <p class="small-note">縦軸はデータの範囲に合わせており、0から始まっていません。各点は5年ごとの調査値です。線は調査値を結ぶもので、間の年の値を推計していません。</p>
+    <div class="table-wrap"><table><caption>国勢調査の総人口・世帯数（各年10月1日、全15時点）</caption><thead><tr><th scope="col">年月日</th><th scope="col">総人口［人］</th><th scope="col">世帯数［世帯］</th></tr></thead><tbody id="census-values"></tbody></table></div>
+    <p><a href="census.csv" download>国勢調査CSVを保存（全15行）</a>。出典・取得日は次の出典欄に記載しています。</p>
+  </section>
+  <section class="source" id="statistics-source" data-target="2012年1月1日〜2025年12月1日／168か月・住民基本台帳系月次集計" aria-labelledby="source-title">
+    <h2 id="source-title">出典・データについて</h2>
+    <p>月次の出典：<a id="statistics-provider" href="https://opendata-east-mikawa.jp/node/1448">東三河オープンデータ・田原市の人口データ</a><br>出典URL：https://opendata-east-mikawa.jp/node/1448<br>対象期間：2012年1月1日〜2025年12月1日（168か月）<br>ライセンス：<a id="statistics-license" href="https://creativecommons.org/licenses/by/4.0/deed.ja">CC BY 4.0</a><br>取得日：<span id="statistics-retrieved">2026-11-10（JST）</span></p>
+    <p>月次の総人口は、2012年原文の「総人口（住民基本台帳人口+外国人登録人口）[人]」と2013年以降の「総人口（日本人人口+外国人人口）[人]」を、後者の列名に合わせて収録しています。元の列名は「元の総人口列名」に残しています。世帯数は「総人口（日本人人口+外国人人口）世帯数[世帯]」を使用し、男女別・外国人内訳はグラフ対象外です。年別CSVの結合・列名の統一・期間の選択抽出・表示整形を行い、未収録月の補完や推計はしていません。</p>
+    <p>国勢調査の出典：<a href="https://www.city.tahara.aichi.jp/seisaku/tokei/1001563/1009085.html">田原市の統計（令和8年度版）</a> 表3-1「国勢調査人口・世帯数」、資料：国勢調査（各年10月1日現在）。<a href="https://www.city.tahara.aichi.jp/_res/projects/default_project/_page_/001/009/085/r8toukei.pdf">出典PDF</a><br>対象期間：1955年10月1日〜2025年10月1日（5年ごと、15時点）<br>取得日：2026-11-10（JST）。2020年・2025年の数値は<a href="https://www.city.tahara.aichi.jp/seisaku/tokei/1001561/1004531.html">田原市の国勢調査結果ページ</a>とも一致しています。e-Stat APIはアプリケーションIDが必要なため、このページの数値の取得元には使用していません。</p>
+    <p><a href="population.csv" download>原文CSVを保存（月次・結合済み全列・全168行）</a> ／ <a href="census.csv" download>国勢調査CSVを保存（全列・全15行）</a>。選択期間CSVは月次データの選択行をUTF-8 BOM付きで保存し、月次の出典URL・CC BY 4.0・収録対象期間・取得日・「選択抽出」を付記します。印刷前にプレビューで改ページをご確認ください。</p>
+  </section>
+</main>
+  <footer class="site-footer">
+    <div class="container footer-inner"><div><p class="footer-title">渥美半島の現場記録</p><p>聞く。記録する。考える。政策につなげる。</p></div><a href="#top">ページの先頭へ</a></div>
+    <div class="container footer-bottom"><p>個人の政治活動・地域調査の記録</p><p>渥美半島 / 愛知県田原市</p></div>
+  </footer>
+</body></html>
