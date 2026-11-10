@@ -51,8 +51,8 @@
   <p>月次データ対象：住民基本台帳系の2012年1月1日〜2025年12月1日、各月1日の168か月です。国勢調査は下の独立した欄に表示し、月次データと1本の線にはつなぎません。</p>
   <fieldset id="controls" disabled><legend>表示期間とCSV保存</legend><div><label for="preset">期間の選択</label><select id="preset"><option value="all">全期間</option><option value="recent">直近12か月 / 2025年</option><option value="first">2025年上半期（1〜6月）</option><option value="second">2025年下半期（7〜12月）</option><option value="custom">任意の開始月〜終了月</option></select></div><div><label for="start">開始月</label><select id="start"></select></div><div><label for="end">終了月</label><select id="end"></select></div><button type="button" class="button" id="save" disabled>選択期間のCSVを保存</button></fieldset>
   <p id="period">対象期間：読み込み中</p><p id="status" role="status" aria-live="polite">CSVを読み込んでいます。</p><div class="print-actions"><button class="button" type="button" id="print">印刷する</button></div><noscript><p>表示・期間選択にはJavaScriptが必要です。下記の原文CSVをご利用ください。</p></noscript>
-  <figure><figcaption>総人口（日本人＋外国人）［人］</figcaption><svg id="population" viewBox="0 0 720 235" role="img" aria-label="総人口の月次グラフ"></svg></figure>
-  <figure><figcaption>総人口の世帯数（日本人＋外国人）［世帯］</figcaption><svg id="households" viewBox="0 0 720 235" role="img" aria-label="世帯数の月次グラフ"></svg></figure>
+  <figure><figcaption>総人口（日本人＋外国人）［人］</figcaption><svg id="population" viewBox="0 0 720 235" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="総人口の月次グラフ"></svg></figure>
+  <figure><figcaption>総人口の世帯数（日本人＋外国人）［世帯］</figcaption><svg id="households" viewBox="0 0 720 235" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="世帯数の月次グラフ"></svg></figure>
   <p class="small-note">縦軸は表示中のデータの範囲に合わせており、0から始まっていません。正確な数値は下の数表で確認できます。欠測は0に置き換えず、グラフの線を切ります。</p>
   <h2>選択期間の数表</h2><div class="table-wrap"><table><caption>各月1日時点の総人口・世帯数</caption><thead><tr><th scope="col">年月日</th><th scope="col">総人口［人］</th><th scope="col">世帯数［世帯］</th></tr></thead><tbody id="values"></tbody></table></div>
   <section aria-labelledby="census-title">
@@ -60,8 +60,8 @@
     <p>国勢調査と住民基本台帳は、調査・登録の方法や集計の定義が異なる統計です。ここでは1955年10月1日〜2025年10月1日の5年ごと、15時点を表示し、上の月次グラフとは1本の線に結合していません。</p>
     <p>2003年8月20日に田原町と赤羽根町が合併して田原市となり、2005年10月1日に渥美町を編入しました。市統計年鑑の表3-1は、旧田原町・旧赤羽根町・旧渥美町の合計として、現在の市域に合わせて再構成した市全体の数値を掲載しています。</p>
     <p id="census-period">対象期間：読み込み中</p><p id="census-status" role="status" aria-live="polite">国勢調査CSVを読み込んでいます。</p>
-    <figure><figcaption>国勢調査の総人口［人］</figcaption><svg id="censusPopulation" viewBox="0 0 720 235" role="img" aria-label="国勢調査の総人口の推移"></svg></figure>
-    <figure><figcaption>国勢調査の世帯数［世帯］</figcaption><svg id="censusHouseholds" viewBox="0 0 720 235" role="img" aria-label="国勢調査の世帯数の推移"></svg></figure>
+    <figure><figcaption>国勢調査の総人口［人］</figcaption><svg id="censusPopulation" viewBox="0 0 720 235" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="国勢調査の総人口の推移"></svg></figure>
+    <figure><figcaption>国勢調査の世帯数［世帯］</figcaption><svg id="censusHouseholds" viewBox="0 0 720 235" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="国勢調査の世帯数の推移"></svg></figure>
     <p class="small-note">縦軸はデータの範囲に合わせており、0から始まっていません。各点は5年ごとの調査値です。線は調査値を結ぶもので、間の年の値を推計していません。</p>
     <div class="table-wrap"><table><caption>国勢調査の総人口・世帯数（各年10月1日、全15時点）</caption><thead><tr><th scope="col">年月日</th><th scope="col">総人口［人］</th><th scope="col">世帯数［世帯］</th></tr></thead><tbody id="census-values"></tbody></table></div>
     <p><a href="census.csv" download>国勢調査CSVを保存（全15行）</a>。出典・取得日は次の出典欄に記載しています。</p>
