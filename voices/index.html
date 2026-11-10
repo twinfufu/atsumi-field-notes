@@ -54,10 +54,11 @@
        本文の各 .record-card には id と data-categories（分野番号）を付ける。
     2. 下の一覧の先頭に .record-card の li を1つ追加する（新しい回を上に）。
        data-categories とその回の .voice-tags を、話題にのぼった分野に合わせる。
-    3. voices/themes/index.html の該当分野（#c1〜#c9）に、既存文だけの抜粋カードを足す。
+    3. voices/themes/index.html の該当分野（#c1〜#c11）に、既存文だけの抜粋カードを足す。
     data-categories の番号：
        1 医療・医療費 / 2 公共交通・高齢者の移動 / 3 農業・燃料費・補助制度 / 4 移住・定住 / 5 雇用・若者流出
        6 子育て・福祉 / 7 消防・防災 / 8 少子高齢化・公共事業 / 9 空き家・草木管理
+       10 エネルギー・災害時の電気 / 11 ゴミ・資源
   -->
   <div class="voice-filter" data-voice-filter>
     <p class="voice-filter-label" id="voice-filter-label">分野で絞り込む</p>
@@ -73,6 +74,8 @@
       <li><button type="button" class="voice-filter-btn" data-filter="7" aria-pressed="false">消防・防災</button></li>
       <li><button type="button" class="voice-filter-btn" data-filter="8" aria-pressed="false">少子高齢化・公共事業</button></li>
       <li><button type="button" class="voice-filter-btn" data-filter="9" aria-pressed="false">空き家・草木管理</button></li>
+      <li><button type="button" class="voice-filter-btn" data-filter="10" aria-pressed="false">エネルギー・災害時の電気</button></li>
+      <li><button type="button" class="voice-filter-btn" data-filter="11" aria-pressed="false">ゴミ・資源</button></li>
     </ul>
     <p class="voice-filter-status small-note" data-filter-status aria-live="polite"></p>
   </div>
@@ -108,7 +111,7 @@
 
 <section aria-labelledby="voice-categories">
   <h2 id="voice-categories">記録の分野</h2>
-  <p>聞き取りの内容は、次の9つの分野に分けて整理します。タグを選ぶと、その分野の抜粋一覧へ移動します。</p>
+  <p>聞き取りの内容は、次の11の分野に分けて整理します。タグを選ぶと、その分野の抜粋一覧へ移動します。</p>
   <ul class="voice-tags" role="list">
     <li data-category="1"><a href="themes/#c1">医療・医療費</a></li>
     <li data-category="2"><a href="themes/#c2">公共交通・高齢者の移動</a></li>
@@ -119,6 +122,8 @@
     <li data-category="7"><a href="themes/#c7">消防・防災</a></li>
     <li data-category="8"><a href="themes/#c8">少子高齢化・公共事業</a></li>
     <li data-category="9"><a href="themes/#c9">空き家・草木管理</a></li>
+    <li data-category="10"><a href="themes/#c10">エネルギー・災害時の電気</a></li>
+    <li data-category="11"><a href="themes/#c11">ゴミ・資源</a></li>
   </ul>
   <p><a href="themes/">分野ごとの抜粋を見る →</a></p>
 </section>

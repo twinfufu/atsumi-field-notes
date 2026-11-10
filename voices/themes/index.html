@@ -49,10 +49,11 @@
   新しい回を追加するとき（分野ページ）：
   1. voices/vol-XX/ を作り、本文の各 .record-card に id と data-categories を付ける。
   2. voices/index.html の一覧に li を追加する。
-  3. 下の該当する分野セクション（#c1〜#c9）の .theme-voice-list に、抜粋の li を1つ足す。
+  3. 下の該当する分野セクション（#c1〜#c11）の .theme-voice-list に、抜粋の li を1つ足す。
      抜粋は既存の聞き取り文だけを使い、新しい文言は作らない。
   分野番号：1 医療・医療費 / 2 公共交通・高齢者の移動 / 3 農業・燃料費・補助制度 / 4 移住・定住
   5 雇用・若者流出 / 6 子育て・福祉 / 7 消防・防災 / 8 少子高齢化・公共事業 / 9 空き家・草木管理
+  10 エネルギー・災害時の電気 / 11 ゴミ・資源
 -->
 
 <nav class="theme-jump" aria-label="分野一覧">
@@ -67,6 +68,8 @@
     <li><a href="#c7">消防・防災</a></li>
     <li><a href="#c8">少子高齢化・公共事業</a></li>
     <li><a href="#c9">空き家・草木管理</a></li>
+    <li><a href="#c10">エネルギー・災害時の電気</a></li>
+    <li><a href="#c11">ゴミ・資源</a></li>
   </ul>
   <p class="small-note">ホームの<a href="../../#themes">調査テーマ</a>（農業・漁業・子育てなど）と対応する分野もあります。まだ聞き取りがない調査テーマは、下の「これから聞き取る分野」に記しています。</p>
 </nav>
@@ -208,6 +211,20 @@
       <p><a href="../vol-01/#voice-vacant-houses">記録の該当箇所を読む →</a></p>
     </li>
   </ul>
+</section>
+
+<section class="theme-section" id="c10" aria-labelledby="theme-10-title" data-category="10">
+  <h2 id="theme-10-title">エネルギー・災害時の電気</h2>
+  <p class="small-note theme-related">関連する調査テーマ：<a href="../../#themes">エネルギー</a> / <a href="../../#themes">災害対策・地域の安全保障</a> / <a href="../../projects/energy/">地域エネルギー自立プロジェクト</a></p>
+  <p class="small-note">この分野の聞き取り記録はまだありません。</p>
+  <ul class="theme-voice-list" role="list"></ul>
+</section>
+
+<section class="theme-section" id="c11" aria-labelledby="theme-11-title" data-category="11">
+  <h2 id="theme-11-title">ゴミ・資源</h2>
+  <p class="small-note theme-related">関連する調査テーマ：<a href="../../#themes">農業・事業ごみ</a></p>
+  <p class="small-note">この分野の聞き取り記録はまだありません。</p>
+  <ul class="theme-voice-list" role="list"></ul>
 </section>
 
 <section class="theme-section theme-planned" id="planned" aria-labelledby="planned-title">
